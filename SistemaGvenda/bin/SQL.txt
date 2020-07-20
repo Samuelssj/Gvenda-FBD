@@ -1,0 +1,156 @@
+
+###ENTIDADES FORTES####
+
+CREATE TABLE produto(
+id serial PRIMARY KEY NOT NULL,
+nome VARCHAR(255) NOT NULL,
+marca VARCHAR(255) NOT NULL,
+descricao VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE endereco(
+id serial PRIMARY KEY NOT NULL,
+rua VARCHAR(255) NOT NULL,
+cep VARCHAR(9) NOT NULL,
+numero VARCHAR(20) NOT NULL,
+bairro VARCHAR(255) NOT NULL,
+cidade VARCHAR(255) NOT NULL,
+estado VARCHAR(2) NOT NULL
+);
+
+
+
+
+CREATE TABLE funcionario(
+id serial PRIMARY KEY NOT NULL,
+nome VARCHAR(255) NOT NULL,
+cpf VARCHAR(11) UNIQUE NOT NULL,
+cargo VARCHAR(255),
+login VARCHAR(255) NOT NULL,
+senha VARCHAR(25) NOT NULL,
+endereco_id INTEGER REFERENCES
+endereco(id),
+situacao BOOLEAN
+);
+
+
+
+CREATE TABLE caixa(
+id serial PRIMARY KEY NOT NULL,
+entrada DOUBLE PRECISION,
+saida DOUBLE PRECISION,
+saldo DOUBLE PRECISION,
+funcionario_id INTEGER REFERENCES
+funcionario(id),
+data_abertura DATE,
+data_fechamento DATE
+);
+
+
+
+CREATE TABLE cliente(
+id serial PRIMARY KEY,
+nome VARCHAR(255) NOT NULL,
+cpf VARCHAR(14) UNIQUE NOT NULL,
+sexo VARCHAR(20),
+data_nascimento VARCHAR(10),
+endereco_id INTEGER REFERENCES
+endereco(id)
+);
+
+
+
+CREATE TABLE contato(
+id serial PRIMARY KEY,
+descricao VARCHAR(255) NOT NULL,
+tipo VARCHAR(255) NOT NULL,
+cliente_id INTEGER REFERENCES cliente(id)
+);
+
+
+
+
+CREATE TABLE venda(
+id serial PRIMARY KEY NOT NULL,
+valorTotal DOUBLE PRECISION,
+descGeral DOUBLE PRECISION,
+valorTroco DOUBLE PRECISION,
+valorRecebido DOUBLE PRECISION,
+dataVenda DATE,
+cliente_id INTEGER REFERENCES cliente(id),
+funcionario_id INTEGER REFERENCES
+funcionario(id),
+caixa_id INTEGER REFERENCES caixa(id)
+);
+
+
+CREATE TABLE fornecedor(
+id serial PRIMARY KEY NOT NULL,
+nomeFantasia VARCHAR(255) NOT NULL,
+razaoSocial VARCHAR(255) NOT NULL,
+cnpj VARCHAR(18) UNIQUE NOT NULL,
+estado VARCHAR(2),
+cidade VARCHAR(60)
+);
+
+
+
+CREATE TABLE item_produto(
+id serial PRIMARY KEY NOT NULL,
+cod_barras VARCHAR(255) UNIQUE NOT NULL,
+unidade_medida DOUBLE PRECISION,
+data_fabricacao DATE,
+data_validade DATE,
+data_compra DATE,
+preco_unidade DOUBLE PRECISION,
+porc_atacado DOUBLE PRECISION,
+porc_varejo DOUBLE PRECISION,
+quantidade INTEGER,
+vendidos INTEGER,
+perecivel BOOLEAN,
+status BOOLEAN,
+fornecedor_id INTEGER REFERENCES
+fornecedor(id),
+produto_id INTEGER REFERENCES produto(id)
+);
+
+
+
+
+CREATE TABLE item_venda(
+id serial PRIMARY KEY NOT NULL,
+valor_desc DOUBLE PRECISION,
+porc_promoc DOUBLE PRECISION,
+promocao BOOLEAN,
+tipo VARCHAR(255),
+quant INTEGER,
+valor_item DOUBLE PRECISION,
+desconto BOOLEAN,
+venda_id INTEGER REFERENCES venda(id),
+item_produto_id INTEGER REFERENCES
+item_produto(id)
+);
+
+
+
+CREATE TABLE parcelaCompra(
+id serial PRIMARY KEY NOT NULL,
+descricao VARCHAR(255),
+valor DOUBLE PRECISION,
+valor_quitado DOUBLE PRECISION,
+qtd_pgmt INTEGER,
+qtd_paga INTEGER,
+data_pagamento DATE,
+data_vencimento DATE,
+caixa_id INTEGER REFERENCES caixa(id),
+fornecedor_id INTEGER REFERENCES
+fornecedor(id),
+status BOOLEAN
+);
+
+
+
+
+
+

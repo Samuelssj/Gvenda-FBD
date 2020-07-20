@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="517.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControleRelatorio">
+   <children>
+      <AnchorPane fx:id="AnchoPane" onDragDetected="#action" prefHeight="517.0" prefWidth="878.0">
+         <children>
+            <TabPane fx:id="TabPaneProduto" layoutX="8.0" layoutY="7.0" prefHeight="517.0" prefWidth="878.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <tabs>
+                <Tab fx:id="TabListaProdutos" text="Relatórios">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox layoutX="-1.0" prefHeight="466.0" prefWidth="878.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <BorderPane prefHeight="379.0" prefWidth="878.0">
+                                       <top>
+                                          <GridPane prefHeight="113.0" prefWidth="878.0" BorderPane.alignment="CENTER">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="435.0" minWidth="10.0" prefWidth="390.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="561.0" minWidth="10.0" prefWidth="488.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="Relatório Financeiro" textFill="#35793e">
+                                                   <font>
+                                                      <Font size="36.0" />
+                                                   </font>
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" top="-5.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <Label text="Data inicio" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <Button fx:id="JBgerarRelatorio" mnemonicParsing="false" onAction="#action" text="Gerar Relatório" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="-85.0" top="40.0" />
+                                                   </GridPane.margin>
+                                                </Button>
+                                                <DatePicker fx:id="TXdataInicio" onAction="#action" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="115.0" />
+                                                   </GridPane.margin>
+                                                </DatePicker>
+                                                <DatePicker fx:id="TXdataFinal" onAction="#action" GridPane.rowIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets left="115.0" />
+                                                   </GridPane.margin>
+                                                </DatePicker>
+                                                <Label text="Data final" GridPane.rowIndex="2">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <Button fx:id="JBvoltar" mnemonicParsing="false" onAction="#action" text="Voltar" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="20.0" top="40.0" />
+                                                   </GridPane.margin>
+                                                </Button>
+                                             </children>
+                                             <BorderPane.margin>
+                                                <Insets right="5.0" />
+                                             </BorderPane.margin>
+                                             <padding>
+                                                <Insets right="5.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </top>
+                                       <bottom>
+                                          <AnchorPane prefHeight="68.0" prefWidth="878.0" BorderPane.alignment="CENTER" />
+                                       </bottom>
+                                    </BorderPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

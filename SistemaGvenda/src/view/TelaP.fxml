@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControleTelaLog">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="700.0">
+         <children>
+            <MenuBar fx:id="menuBar" layoutX="1.0" layoutY="2.0" prefHeight="25.0" prefWidth="701.0">
+              <menus>
+                <Menu fx:id="menuCadastro" mnemonicParsing="false" text="Cadastro">
+                  <items>
+                    <MenuItem fx:id="menuCadastroCliente" mnemonicParsing="false" onAction="#action" text="Cliente" />
+                        <MenuItem fx:id="menuCadastroFornecedor" mnemonicParsing="false" text="Fornecedor" />
+                        <MenuItem fx:id="menuCadastroProduto" mnemonicParsing="false" text="Produto" />
+                  </items>
+                </Menu>
+                <Menu fx:id="menuExibir" mnemonicParsing="false" text="Exibir">
+                  <items>
+                    <MenuItem fx:id="menuExibirClientes" mnemonicParsing="false" text="Clientes" />
+                        <MenuItem fx:id="menuExibirEstoque" mnemonicParsing="false" text="Estoque" />
+                        <MenuItem fx:id="menuExibirFornecedor" mnemonicParsing="false" text="Fornecedores" />
+                  </items>
+                </Menu>
+                <Menu fx:id="menuRelatorio" mnemonicParsing="false" text="Relátorios">
+                  <items>
+                    <MenuItem fx:id="menuRelatorioCompras" mnemonicParsing="false" text="Compras" />
+                        <MenuItem fx:id="menuRelatorioVendas" mnemonicParsing="false" text="Vendas" />
+                  </items>
+                </Menu>
+                  <Menu fx:id="menuAjuda" mnemonicParsing="false" text="Ajuda">
+                    <items>
+                        <MenuItem fx:id="menuAjudaSobre" mnemonicParsing="false" text="Sobre o Gvenda" />
+                      <MenuItem fx:id="menuAjudaSair" mnemonicParsing="false" text="Sair" />
+                    </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
